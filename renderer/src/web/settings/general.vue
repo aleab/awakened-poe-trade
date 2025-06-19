@@ -35,6 +35,16 @@
       <input v-model.trim="gameConfig"
         class="rounded bg-gray-900 px-1 block w-full font-sans" placeholder="...?/My Games/Path of Exile/production_Config.ini">
     </div>
+    <div class="mb-4">
+      <div class="flex-1 mb-1">{{ t(':external_browser') }}</div>
+      <ui-checkbox v-bind:class="{ 'mb-1': useSpecificBrowser }" v-model="useSpecificBrowser">{{ t(':use_specific_browser') }}</ui-checkbox>
+      <div v-if="useSpecificBrowser">
+        <input v-model.trim="specificBrowser" class="mb-2 rounded bg-gray-900 px-1 block w-full font-sans">
+        <div class="bg-gray-700 rounded px-2 py-1 leading-none">
+          <i class="fas fa-info-circle"></i> {{ t(':specific_browser_info') }}
+        </div>
+      </div>
+    </div>
     <hr class="mb-4 mx-8 border-gray-700">
     <div class="mb-2">
       <div class="mb-1">{{ t(':overlay_bg') }}</div>
@@ -76,6 +86,8 @@ export default defineComponent({
       overlayBackground: configModelValue(() => props.config, 'overlayBackground'),
       clientLog: configModelValue(() => props.config, 'clientLog'),
       gameConfig: configModelValue(() => props.config, 'gameConfig'),
+      useSpecificBrowser: configModelValue(() => props.config, 'useSpecificBrowser'),
+      specificBrowser: configModelValue(() => props.config, 'specificBrowser'),
       language: computed<typeof props.config.language>({
         get () { return props.config.language },
         set (value) {

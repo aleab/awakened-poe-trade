@@ -1,4 +1,5 @@
 import path from 'path'
+import { exec } from 'node:child_process'
 import { BrowserWindow, dialog, shell, Menu, WebContents } from 'electron'
 import { OverlayController, OVERLAY_WINDOW_OPTS } from 'electron-overlay-window'
 import type { ServerEvents } from '../server'
@@ -11,6 +12,7 @@ export class OverlayWindow {
   private window?: BrowserWindow
   private overlayKey: string = 'Shift + Space'
   private isOverlayKeyUsed = false
+  private specificBrowser: string | null = null
 
   constructor (
     private server: ServerEvents,
@@ -51,7 +53,16 @@ export class OverlayWindow {
     })
 
     this.window.webContents.setWindowOpenHandler((details) => {
-      shell.openExternal(details.url)
+      if (!this.specificBrowser) {
+        shell.openExternal(details.url)
+      } else {
+        let cmd = this.specificBrowser.replaceAll('"$0"', '$0').replaceAll('$0', `"${details.url}"`)
+        exec(cmd, error => {
+          if (error) {
+            shell.openExternal(details.url)
+          }
+        });
+      }
       return { action: 'deny' }
     })
   }
@@ -98,9 +109,10 @@ export class OverlayWindow {
     }
   }
 
-  updateOpts (overlayKey: string, windowTitle: string) {
+  updateOpts (overlayKey: string, windowTitle: string, specificBrowser: string | null) {
     this.overlayKey = overlayKey
     this.poeWindow.attach(this.window, windowTitle)
+    this.specificBrowser = specificBrowser
   }
 
   private handleExtraCommands = (event: Electron.Event, input: Electron.Input) => {

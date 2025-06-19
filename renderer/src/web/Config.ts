@@ -109,6 +109,8 @@ export interface Config {
   }>
   clientLog: string | null
   gameConfig: string | null
+  useSpecificBrowser: boolean
+  specificBrowser: string | null
   windowTitle: string
   logKeys: boolean
   accountName: string
@@ -154,6 +156,8 @@ export const defaultConfig = (): Config => ({
   }],
   clientLog: null,
   gameConfig: null,
+  useSpecificBrowser: false,
+  specificBrowser: null,
   windowTitle: 'Path of Exile',
   logKeys: false,
   accountName: '',
@@ -423,6 +427,12 @@ function upgradeConfig (_config: Config): Config {
     config.configVersion = 17
   }
 
+  if (config.configVersion < 18) {
+    config.useSpecificBrowser = false
+    config.specificBrowser = null
+    config.configVersion = 18
+  }
+
   return config as unknown as Config
 }
 
@@ -548,6 +558,8 @@ function getConfigForHost (): HostConfig {
     restoreClipboard: config.restoreClipboard,
     clientLog: config.clientLog,
     gameConfig: config.gameConfig,
+    useSpecificBrowser: config.useSpecificBrowser,
+    specificBrowser: config.specificBrowser,
     stashScroll: config.stashScroll,
     overlayKey: config.overlayKey,
     logKeys: config.logKeys,
