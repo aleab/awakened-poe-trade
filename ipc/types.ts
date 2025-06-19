@@ -3,6 +3,8 @@ export interface HostConfig {
   restoreClipboard: boolean
   clientLog: string | null
   gameConfig: string | null
+  useSpecificBrowser: boolean
+  specificBrowser: string | null
   stashScroll: boolean
   overlayKey: string
   logKeys: boolean
