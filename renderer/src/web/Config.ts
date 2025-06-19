@@ -120,6 +120,7 @@ export interface Config {
   widgets: widget.Widget[]
   fontSize: number
   showAttachNotification: boolean
+  quitWithPoE: boolean
 }
 
 export const defaultConfig = (): Config => ({
@@ -129,6 +130,7 @@ export const defaultConfig = (): Config => ({
   overlayBackgroundClose: true,
   restoreClipboard: false,
   showAttachNotification: true,
+  quitWithPoE: false,
   commands: [{
     text: '/hideout',
     hotkey: 'F5',
@@ -428,6 +430,7 @@ function upgradeConfig (_config: Config): Config {
   }
 
   if (config.configVersion < 18) {
+    config.quitWithPoE = false
     config.useSpecificBrowser = false
     config.specificBrowser = null
     config.configVersion = 18
@@ -564,6 +567,7 @@ function getConfigForHost (): HostConfig {
     overlayKey: config.overlayKey,
     logKeys: config.logKeys,
     windowTitle: config.windowTitle,
-    language: config.language
+    language: config.language,
+    quitWithPoE: config.quitWithPoE,
   }
 }

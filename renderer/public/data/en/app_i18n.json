@@ -303,6 +303,7 @@
     "restore_clipboard" :"Restore clipboard",
     "show_overlay_ready" :"Show a notification when the Overlay detects a PoE window",
     "debug_hotkeys": "Record all key presses",
+    "quit_with_poe": "Quit when PoE closes",
     "external_browser": "External browser",
     "use_specific_browser": "Use specific browser",
     "specific_browser_info": "Example: \"C:/Program Files/Firefox/firefox.exe\" $0"

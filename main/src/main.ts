@@ -42,7 +42,7 @@ app.on('ready', async () => {
       const shortcuts = await Shortcuts.create(logger, overlay, poeWindow, gameConfig, eventPipe)
       eventPipe.onEventAnyClient('CLIENT->MAIN::update-host-config', (cfg) => {
         let specificBrowser = cfg.useSpecificBrowser ? (cfg.specificBrowser ?? null) : null
-        overlay.updateOpts(cfg.overlayKey, cfg.windowTitle, specificBrowser)
+        overlay.updateOpts(cfg.overlayKey, cfg.windowTitle, cfg.quitWithPoE, specificBrowser)
         shortcuts.updateActions(cfg.shortcuts, cfg.stashScroll, cfg.logKeys, cfg.restoreClipboard, cfg.language)
         gameLogWatcher.restart(cfg.clientLog ?? '')
         gameConfig.readConfig(cfg.gameConfig ?? '')
