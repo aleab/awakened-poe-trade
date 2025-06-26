@@ -22,6 +22,7 @@ export interface Stat {
   fromAreaMods?: true
   fromUberAreaMods?: true
   fromHeistAreaMods?: true
+  fromValdoAreaMods?: true
   anointments?: Array<{ roll: number, oils: string }> // Ring anointments
   trade: {
     inverted?: true

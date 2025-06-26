@@ -4,6 +4,7 @@
       <span v-if="matcher.tag === StatTag.Outdated" :class="[$style['tag'], $style['tag-outdated']]">{{ t('map.mods.outdated') }}</span>
       <span v-if="matcher.tag === StatTag.HeistExclusive" :class="[$style['tag'], $style['tag-heist']]">{{ t('map.mods.heist') }}</span>
       <span v-if="matcher.tag === StatTag.UberMapExclusive" :class="[$style['tag'], $style['tag-uber']]">{{ t('map.mods.uber') }}</span>
+      <span v-if="matcher.tag === StatTag.ValdoMapExclusive" :class="[$style['tag'], $style['tag-valdo']]">{{ t('map.mods.valdo') }}</span>
       <span class="truncate">{{ matcher.matchStr }}</span>
     </div>
     <div class="flex items-baseline gap-x-4" :class="{ [$style['controls-auto-hide']]: !removable() }">
@@ -114,6 +115,9 @@ export default defineComponent({
 }
 .tag-uber {
   @apply bg-purple-600;
+}
+.tag-valdo {
+  background: linear-gradient(to bottom, rgba(83, 214, 255, 0.78), rgba(88, 42, 122, 0.82));
 }
 .tag-outdated {
   @apply bg-red-400 text-black;

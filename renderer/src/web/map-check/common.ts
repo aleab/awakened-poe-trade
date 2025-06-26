@@ -14,7 +14,8 @@ export interface MapCheckStat {
 export enum StatTag {
   Outdated = 1,
   HeistExclusive,
-  UberMapExclusive
+  UberMapExclusive,
+  ValdoMapExclusive
 }
 
 export interface StatMatcher {
