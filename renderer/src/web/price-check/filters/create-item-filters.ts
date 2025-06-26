@@ -340,6 +340,13 @@ export function createFilters (
     }
   }
 
+  if (item.memoryStrands) {
+    filters.memoryStrands = {
+      value: item.memoryStrands,
+      disabled: false
+    }
+  }
+
   return filters
 }
 

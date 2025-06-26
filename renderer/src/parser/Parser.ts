@@ -41,6 +41,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseItemLevel,
   parseTalismanTier,
   parseGem,
+  parseMemoryStrands,
   parseArmour,
   parseWeapon,
   parseFlask,
@@ -920,6 +921,16 @@ function parseStatsFromMod (lines: string[], item: ParsedItem, modifier: ParsedM
     text: line,
     type: modifier.info.type
   })))
+}
+
+function parseMemoryStrands (section: string[], item: ParsedItem) {
+  for (const line of section) {
+    if (line.startsWith(_$.MEMORY_STRANDS)) {
+      item.memoryStrands = parseInt(line.slice(_$.MEMORY_STRANDS.length), 10)
+      return 'PARSER_SKIPPED'
+    }
+  }
+  return 'SECTION_SKIPPED'
 }
 
 /**

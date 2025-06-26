@@ -27,6 +27,8 @@
         :filter="filters.gemLevel" :name="t('item.gem_level')" />
       <filter-btn-numeric v-if="filters.quality"
         :filter="filters.quality" :name="t('item.quality')" />
+      <filter-btn-numeric v-if="filters.memoryStrands"
+        :filter="filters.memoryStrands" :name="t('item.memory_strands')" />
       <template v-if="filters.influences">
         <filter-btn-logical v-for="influence of filters.influences" :key="influence.value"
           :filter="influence" :text="influence.value" :img="`/images/influence-${influence.value}.png`" />

@@ -171,6 +171,7 @@ export interface TranslationDict {
   ELDRITCH_MOD_R5: string
   ELDRITCH_MOD_R6: string
   SENTINEL_CHARGE: string
+  MEMORY_STRANDS: string
   SHAPER_MODS: string[]
   ELDER_MODS: string[]
   CRUSADER_MODS: string[]

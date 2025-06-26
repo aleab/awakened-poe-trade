@@ -83,6 +83,7 @@ export default {
   ELDRITCH_MOD_R5: '정교한',
   ELDRITCH_MOD_R6: '완벽한',
   SENTINEL_CHARGE: '충전: ',
+  MEMORY_STRANDS: '기억 가닥: ',
   SHAPER_MODS: ['- 형성', '쉐이퍼의'],
   ELDER_MODS: ['- 엘더', '엘더의'],
   CRUSADER_MODS: ['십자군의', '- 십자군'],

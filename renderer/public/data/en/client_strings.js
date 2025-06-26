@@ -83,6 +83,7 @@ export default {
   ELDRITCH_MOD_R5: 'Exquisite',
   ELDRITCH_MOD_R6: 'Perfect',
   SENTINEL_CHARGE: 'Charge: ',
+  MEMORY_STRANDS: 'Memory Strands: ',
   SHAPER_MODS: ['of Shaping', "The Shaper's"],
   ELDER_MODS: ['of the Elder', "The Elder's"],
   CRUSADER_MODS: ["Crusader's", 'of the Crusade'],

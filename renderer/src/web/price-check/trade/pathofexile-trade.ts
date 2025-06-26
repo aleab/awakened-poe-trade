@@ -379,6 +379,10 @@ export function createTradeRequest (filters: ItemFilters, stats: StatFilter[], i
     propSet(query.filters, 'sentinel_filters.filters.sentinel_durability.min', filters.sentinelCharge.value)
   }
 
+  if (filters.memoryStrands && !filters.memoryStrands.disabled) {
+    propSet(query.filters, 'misc_filters.filters.memory_level.min', filters.memoryStrands.value)
+  }
+
   for (const stat of stats) {
     if (stat.tradeId[0] === 'item.has_empty_modifier') {
       const TARGET_ID = {

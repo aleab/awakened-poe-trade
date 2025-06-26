@@ -83,6 +83,7 @@ export default {
   ELDRITCH_MOD_R5: '精緻',
   ELDRITCH_MOD_R6: '完美',
   SENTINEL_CHARGE: '充能: ',
+  MEMORY_STRANDS: 'Memory Strands: ',
   SHAPER_MODS: ['塑者之', '塑者的'],
   ELDER_MODS: ['尊師之', '尊師的'],
   CRUSADER_MODS: ['聖戰士的', '聖戰士之'],
